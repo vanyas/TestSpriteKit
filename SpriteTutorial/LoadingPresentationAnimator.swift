@@ -38,19 +38,14 @@ class LoadingPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioni
       return
     }
 
-//    var initialFrame = CGRectZero
-//    var finalFrame = CGRectZero
 
     var initialtransForm = CGAffineTransformIdentity
     var finalTransform = CGAffineTransformIdentity
 
     if animationType == .presentation {
       transitionContext.containerView()?.addSubview(controller.view)
-//      finalFrame = transitionContext.finalFrameForViewController(controller)
-//      initialFrame = finalFrame
       initialtransForm = CGAffineTransformMakeScale(0.1, 0.1)
     } else {
-//      initialFrame = transitionContext.finalFrameForViewController(controller)
       finalTransform = CGAffineTransformMakeScale(0.1, 0.1)
     }
 
@@ -63,7 +58,6 @@ class LoadingPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioni
       delay: 0.0,
       options: [UIViewAnimationOptions.CurveEaseInOut],
       animations: { 
-   //     controller.view.frame = finalFrame
         controller.view.transform = finalTransform
       }
     ) { (finished) in
